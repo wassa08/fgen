@@ -1,0 +1,58 @@
+.entete{
+    background-color:rgb(26, 92, 70);
+    min-height: 30%;
+    margin-top: 0cm;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    .appname{
+        text-align: center;
+        color: white;
+        font-size: 5em;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        .dif{
+            color: black;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+    }
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    //border: solid black 2px;
+    width: 50%;
+    font-family: 'Times New Roman', Times, serif;
+    .card-header{
+        background-color: lightgrey;
+        text-align: center;
+        border: solid 2px rgb(72, 70, 70);
+    }
+    .card-body{
+        border: solid 2px rgb(72, 70, 70);
+        height: 5em;
+    }
+    .bt{margin: 0.5em;
+        height: 3em;
+        width: 10em;
+        background-color: rgb(4, 87, 87);
+        margin-left: auto;
+        margin-right: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        border: none;
+        color: aliceblue;}
+}
+.articles{
+    .row{
+        height: 3em;
+    }
+    .cell{
+        width: 10em;
+        text-align: center;
+        background-color: rgb(236, 241, 244);
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 0.8em;
+    }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viewPDF</title>
+    <link rel="stylesheet" href="css/pdf.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+    <script src="js/createpdf.js"></script>
+</head>
+<body>
+    <div class="menu">
+        <input type="button" value="Facture suivante" class="nextfact" id="nextfact"><br>
+        <input type="button" value="Facture précédente" class="nextfact" id="prevfact"><br>
+        <input type="button" value="Accueil" class="nextfact" id="home"><br>
+        <input type="button" value="Imprimer" class="print" id="print">
+    </div>
+<div class="paper" id="paper">
+    <div class="container" id="fcontainer">
+        <div class="adresse">
+            <span class="ligne1">Sté Gharbi Marbre S.A</span><br>
+            <p>Lessouda Sidi Bouzid
+                Capital:766MD
+            </p>
+            <p>Capital:766MD</p>
+            <p>
+                RC:B1844372013 - MF1288148V/A/M/000
+            </p>
+            
+        </div>
+        <div class="logo">
+            <img src="img/sigle.jpeg" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="gadget">
+            <div class="gadget-entete">Facture</div>
+            <div class="gadget-inf">
+                <table>
+                    <tr>
+                        <td class="gras">N°:</td>
+                        <td><label id="numfact"></label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Date:</td>
+                        <td><label id="datefact"></label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Page:</td>
+                        <td><label id="pagefact"></label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="gadget">
+            <div class="gadget-entete">Client</div>
+            <div class="gadget-inf">
+                <table>
+                    <tr>
+                        <td class="gras">Code:</td>
+                        <td><label id="codeclient"></label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Nom:</td>
+                        <td><label id="nomclient"></label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Adresse:</td>
+                        <td><label id="adresse"> Sidi Bouzid</label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">MF:</td>
+                        <td><label id="MF"> </label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="articles">
+            <tr class="articles-entete">
+                <td>designation</td>
+                <td>Qté</td>
+                <td>PU</td>
+                <td>Total Ht</td>
+                <td>TVA %</td>
+                <td>Mnt TVA</td>
+                <td>Total TTC</td>
+            </tr>
+            <tr class="normalline">
+                <td id="designation">SCIAGE</td>
+                <td id ="qte">xxxxx</td>
+                <td id="pu">xxxxx</td>
+                <td id="totalht">xxxxx</td>
+                <td id="tva">xxxxx</td>
+                <td id="mnttva">xxxxx</td>
+                <td id="totalttc">xxxxx</td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="container">
+        <div class="left">
+        <p class="phrase">Arrétée la présente facture ala somme de:</p> 
+        <p><label id="mntlettreint"></label> Dinars et <label id="mntlettresdec"></label>millimes</p>
+        </div>
+        <div class="right">
+            <table class="totaux">
+                <tr>
+                    <td class="gras">Toatal HT:</td>
+                    <td><label id="totalhtbas">0000</label></td>
+                </tr>
+                <tr>
+                    <td class="gras">Montant TVA:</td>
+                    <td><label id="mnttvabas">0000</label></td>
+                </tr>
+                <tr>
+                    <td class="gras">Timbre fiscale:</td>
+                    <td><label id="timbre">0000</label></td>
+                </tr>
+                <tr>
+                    <td class="gras">Net à payer:</td>
+                    <td><label id="net">0000</label></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+.paper{
+    background-color:white;
+    border: solid 3px black;
+    width: 20cm;
+    height: 28cm;
+    margin-top: 0.5cm;
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    .menu{
+        width: 15%;
+        position: fixed;
+    }
+    .nextfact{
+        margin: 0.5em;
+        height: 3em;
+        width: 80%;
+        background-color: rgb(4, 87, 87);
+        margin-left: auto;
+        margin-right: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        border: none;
+        color: aliceblue;
+    }
+    .print{
+        margin: 0.5em;
+        height: 3em;
+        width: 80%;
+        background-color: rgb(4, 87, 87);
+        margin-left: auto;
+        margin-right: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        border: none;
+        color: aliceblue;
+    }
+}
+
+.container {
+    margin: 0.5cm;
+    background: white;
+    width: 95%;
+    display:flex;
+    place-content:unset;
+    align-items: right;
+    .adresse{
+        margin: 0.5cm;
+        font: black 1em;
+        font-family: 'Times New Roman', Times, serif;
+        width: 35%;
+        span{
+            font-weight: bold;
+        }
+      }
+      .logo{
+        width: 25%;
+        margin-left: 2cm;
+        margin-top: 1.5cm;
+        img{
+            height: 2.5cm;
+            width: 5cm;
+        }
+      }
+      .gadget{
+        border:2px solid rgb(78, 76, 76);
+        width: 7cm;
+        margin-right:1cm;
+        margin-left:1cm;
+        .gadget-entete{
+            background-color: rgb(180, 175, 175);
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            border-bottom: solid 1px black;
+            font-size: 1.2em;
+        }
+        .gadget-inf{
+            padding-top: 0.5cm;
+            font-size: 1em;
+            font-family:'Times New Roman', Times, serif;
+            .gras{
+                font-weight: bold;
+                width: 2.5cm;
+            }
+        }
+      }
+      .articles{
+        border: solid 1px rgb(170, 169, 169);
+        margin-bottom: 9cm;
+        margin-top: 1cm;
+        .articles-entete{
+            background-color: rgb(170, 169, 169);
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            max-height: 0.8cm;
+            
+        }
+        .normalline{
+            border-bottom: 1px lightgray solid;
+            font-family: 'Times New Roman', Times, serif;
+            max-height: 0.8cm;
+        }
+        td{
+            width: 2.5cm;
+            text-align: center;
+        }
+      }
+      .right{
+        margin-left: 4cm;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1em;
+        .gras{
+            background-color: lightgray;
+            width: 8em;
+            height: 2em;
+        }
+        table {
+            font-family: 'Times New Roman', Times, serif;
+        }
+    }
+    .left{
+        width: 8cm;
+        .phrase{
+            font-weight:bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    }
+}
+
+
+
+  

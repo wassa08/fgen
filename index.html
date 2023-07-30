@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <title>FGen</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="entete">
+      <p class="appname">F<span class="dif">G</span>EN</p>
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="text-center">importez votre excel fichier</h2>
+        </div>
+        <div class="card-body">
+          <input type="file" id="excel-file"><br>
+          <input type="button" id="viewPDF" class="bt" value="view  PDF">
+        </div>
+      </div>
+      
+      <div class="mt-5" id="excel-data"></div>
+    </div>
+        <script src="js/readexcel.js"></script>
+</body>
+</html>
