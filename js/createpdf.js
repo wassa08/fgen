@@ -130,16 +130,16 @@ window.onload = function() {
     print=document.getElementById('print');
     print.addEventListener('click',(event)=>{
         var element = document.getElementById('paper'); 
-
+        var filename=currentFacture.nfact;
         //easy
         //html2pdf().from(element).save();
 
         //custom file name
-        //html2pdf().set({filename: 'facture'+filename+'.pdf'}).from(element).save();
-        var filename=currentFacture.nfact;
+        html2pdf().set({filename: 'facture'+filename+'.pdf'}).from(element).save();
+        
 
         //more custom settings
-        var opt = 
+        /*var opt = 
         {
           margin:       1,
           filename:     'facture'+filename+'.pdf',
@@ -149,7 +149,7 @@ window.onload = function() {
         };
 
         // New Promise-based usage:
-        html2pdf().set(opt).from(element).save();
+        html2pdf().set(opt).from(element).save();*/
     });
     //retour accueil
     home=document.getElementById('home');
