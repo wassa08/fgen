@@ -38,7 +38,8 @@ var listeFactures=new Array();
           dt:xrow[7].textContent,
           ttc:xrow[8].textContent,
           qte:xrow[9].textContent,
-          mf:xrow[10].textContent
+          mf:xrow[10].textContent,
+          adresse:xrow[11].textContent,
         };
         listeFactures.push(facture);
       }

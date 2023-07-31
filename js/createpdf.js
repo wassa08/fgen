@@ -11,7 +11,8 @@ let facture={
     dt:9999,
     ttc:9999,
     qte:9999,
-    mf:"ffffff"
+    mf:"ffffff",
+    adresse:"adresse clt"
   };
 var currentf=1;
 listeFactures = JSON.parse(sessionStorage.getItem('listeFactures'));
@@ -81,6 +82,7 @@ let displayfacture=function(facture){
         document.getElementById('mnttva').innerText=Number(currentFacture.tva).toFixed(3);
         document.getElementById('totalttc').innerText=Number(currentFacture.ttc).toFixed(3);
         document.getElementById('MF').innerText=currentFacture.mf;
+        document.getElementById('adresse').innerText=currentFacture.adresse;
         //calcule prix unitaire
         var prixht=parseInt(currentFacture.htva).toFixed(3);
         var quantite=parseInt(currentFacture.qte).toFixed(3);
