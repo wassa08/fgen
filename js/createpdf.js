@@ -88,7 +88,7 @@ let displayfacture=function(facture){
         document.getElementById('pu').innerText=Number(PU).toFixed(3);
         console.log(Number(currentFacture.tva).toFixed(3));
         //les totaux
-        var totalht=Number(currentFacture.ttc).toFixed(3);
+        var totalht=Number(currentFacture.htva).toFixed(3);
         var mnttva=Number(currentFacture.tva).toFixed(3);
         document.getElementById('totalhtbas').innerText=totalht;
         document.getElementById('mnttvabas').innerText=mnttva;
