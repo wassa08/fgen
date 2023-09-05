@@ -1,8 +1,13 @@
+.papers {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .paper {
   background-color: white;
   border: solid 3px black;
   width: 20cm;
-  height: 28cm;
+  height: 29cm;
   margin-top: 0.5cm;
   margin-left: auto;
   margin-right: auto;

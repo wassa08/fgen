@@ -14,8 +14,9 @@ let facture={
     mf:"ffffff",
     adresse:"adresse clt"
   };
-var currentf=1;
 listeFactures = JSON.parse(sessionStorage.getItem('listeFactures'));
+var debut=parseInt(sessionStorage.getItem("debut",debut));
+var fin=parseInt(sessionStorage.getItem("fin",fin));
 //chiffres ==>lettres
 let num2Letters=function (number) {
     if (isNaN(number) || number < 0 || 99999 < number) {
@@ -70,68 +71,199 @@ let num2Letters=function (number) {
         return thousandsOut+' '+hundredsOut + (hundredsOut && tensOut ? ' ': '') + tensOut + (hundredsOut && unitsOut || tensOut && unitsOut ? ' ': '') + unitsOut;
     }
 }
-//affichage données facture
-let displayfacture=function(facture){
-        document.getElementById('codeclient').innerText=currentFacture.codeClient;
-        document.getElementById('nomclient').innerText=currentFacture.nameClient;
-        document.getElementById('numfact').innerText=currentFacture.nfact;
-        document.getElementById('datefact').innerText=currentFacture.date;
-        document.getElementById('qte').innerText=Number(currentFacture.qte).toFixed(3);
-        document.getElementById('tva').innerText=Number(currentFacture.txtva).toFixed(3);
-        document.getElementById('totalht').innerText=Number(currentFacture.htva).toFixed(3);
-        document.getElementById('mnttva').innerText=Number(currentFacture.tva).toFixed(3);
-        document.getElementById('totalttc').innerText=Number(currentFacture.ttc).toFixed(3);
-        document.getElementById('MF').innerText=currentFacture.mf;
-        document.getElementById('adresse').innerText=currentFacture.adresse;
-        //calcule prix unitaire
-        var prixht=parseInt(currentFacture.htva).toFixed(3);
-        var quantite=parseInt(currentFacture.qte).toFixed(3);
-        var PU=prixht/quantite;
-        document.getElementById('pu').innerText=Number(PU).toFixed(3);
-        console.log(Number(currentFacture.tva).toFixed(3));
-        //les totaux
-        var totalht=Number(currentFacture.htva).toFixed(3);
-        var mnttva=Number(currentFacture.tva).toFixed(3);
-        document.getElementById('totalhtbas').innerText=totalht;
-        document.getElementById('mnttvabas').innerText=mnttva;
-        document.getElementById('timbre').innerText=Number(0.600).toFixed(3);
-        document.getElementById('net').innerText=(Number(totalht)+Number(mnttva)+0.600).toFixed(3);
-        //afficher le montant en lettres
-        var net=Number(totalht)+Number(mnttva)+0.600;
-        var intpart=Math.trunc(net);
-        var decpart=Math.trunc(net);
-        document.getElementById('mntlettreint').innerHTML=num2Letters(parseInt(intpart, 10));
-        document.getElementById('mntlettresdec').innerHTML=Math.trunc((net-decpart)*1000);
+let displayfactures=function(factures,debut,fin){
+   
+    for(i=debut;i<fin;i++){
+        var paper='<div class="paper" id="paper">';
+        currentFacture=(factures.length>0?listeFactures[i]:
+            {
+                nfact:1000,
+                date: "01/01/2020",
+                codeClient:9999,
+                nameClient:"xxxxxx",
+                htva:9999,
+                txtva:99,
+                tva:9999,
+                dt:9999,
+                ttc:9999,
+                qte:9999,
+                mf:"ffffff",
+                adresse:"adresse clt"
+              });
+              var codeclt=currentFacture.codeClient;
+              var nomclt=currentFacture.nameClient;
+              var codef=currentFacture.nfact;
+              var datef=currentFacture.date;
+              var qte=Number(currentFacture.qte).toFixed(3);
+              var txtva=Number(currentFacture.txtva).toFixed(3);
+              var mnthtva=Number(currentFacture.htva).toFixed(3);
+              var mnttva=Number(currentFacture.tva).toFixed(3);
+              var ttc=Number(currentFacture.ttc).toFixed(3);
+              var mf=currentFacture.mf;
+              var adresse=currentFacture.adresse;
+              //calcule prix unitaire
+              var prixht=parseInt(currentFacture.htva).toFixed(3);
+              var quantite=parseInt(currentFacture.qte).toFixed(3);
+              var PU=(prixht/quantite).toFixed(3);
+              var totalht=Number(currentFacture.htva).toFixed(3);
+              var mnttva=Number(currentFacture.tva).toFixed(3);
+              var timbre=Number(0.600).toFixed(3);
+              var net=(Number(totalht)+Number(mnttva)+0.600).toFixed(3);
+              //afficher le montant en lettres
+            var intpart=Math.trunc(net);
+            var decpart=Math.trunc(net);
+            var mntlettreint=num2Letters(parseInt(intpart, 10));
+            var mntlettresdec=Math.trunc((net-decpart)*1000);
+    var box = `
+    <div class="container" id="fcontainer">
+        <div class="adresse">
+            <span class="ligne1">Sté Gharbi Marbre S.A</span><br>
+            <p>Lessouda Sidi Bouzid
+                Capital:766MD
+            </p>
+            <p>Capital:766MD</p>
+            <p>
+                RC:B1844372013 - MF1288148V/A/M/000
+            </p>
+            
+        </div>
+        <div class="logo">
+            <img src="img/sigle.jpeg" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="gadget">
+            <div class="gadget-entete">Facture</div>
+            <div class="gadget-inf">
+                <table>
+                    <tr>
+                        <td class="gras">N°:</td>
+                        <td><label id="numfact">${codef}</label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Date:</td>
+                        <td><label id="datefact">${datef}</label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Page:</td>
+                        <td><label id="pagefact">1</label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="gadget">
+            <div class="gadget-entete">Client</div>
+            <div class="gadget-inf">
+                <table>
+                    <tr>
+                        <td class="gras">Code:</td>
+                        <td><label id="codeclient">${codeclt}</label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Nom:</td>
+                        <td><label id="nomclient">${nomclt}</label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">Adresse:</td>
+                        <td><label id="adresse"> Sidi Bouzid</label></td>
+                    </tr>
+                    <tr>
+                        <td class="gras">MF:</td>
+                        <td><label id="MF">${mf}</label></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="articles">
+            <tr class="articles-entete">
+                <td>designation</td>
+                <td>Qté</td>
+                <td>PU</td>
+                <td>Total Ht</td>
+                <td>TVA %</td>
+                <td>Mnt TVA</td>
+                <td>Total TTC</td>
+            </tr>
+            <tr class="normalline">
+                <td id="designation">SCIAGE</td>
+                <td id ="qte">${qte}</td>
+                <td id="pu">${PU}</td>
+                <td id="totalht">${mnthtva}</td>
+                <td id="tva">${txtva}</td>
+                <td id="mnttva">${mnttva}</td>
+                <td id="totalttc">${totalht}</td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="container">
+        <div class="left">
+        <p class="phrase">Arrétée la présente facture ala somme de:</p> 
+        <p><label id="mntlettreint">${mntlettreint}</label> Dinars et <label id="mntlettresdec">${mntlettresdec}</label>millimes</p>
+        </div>
+        <div class="right">
+            <table class="totaux">
+                <tr>
+                    <td class="gras">Toatal HT:</td>
+                    <td><label id="totalhtbas">${totalht}</label></td>
+                </tr>
+                <tr>
+                    <td class="gras">Montant TVA:</td>
+                    <td><label id="mnttvabas">${mnttva}</label></td>
+                </tr>
+                <tr>
+                    <td class="gras">Timbre fiscale:</td>
+                    <td><label id="timbre">${timbre}</label></td>
+                </tr>
+                <tr>
+                    <td class="gras">Net à payer:</td>
+                    <td><label id="net">${net}</label></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    `;
+    paper+=box;
+    paper+='</div>';
+    document.getElementById('papers').innerHTML+=paper;
+    }
+    
 }
-
-var currentFacture=listeFactures[currentf];
+var currentFacture=new Array();
 window.onload = function() {
     const nextfact=document.getElementById('nextfact');
     const prevfact=document.getElementById('prevfact');
-    currentFacture=listeFactures[currentf];
-        displayfacture(currentFacture);
-    //facture suivante 
+    displayfactures(listeFactures,debut,fin);
+    //liste suivante 
     nextfact.addEventListener('click',(event)=>{
-        if(currentf<listeFactures.length){
-            currentf++;
-            currentFacture=listeFactures[currentf];
-            displayfacture(currentFacture);
+        debut=fin;
+        if(listeFactures.length-fin>50){
+            fin+=50;
+        }else{
+            fin=listeFactures.length;
         }
+        sessionStorage.setItem("debut",debut);
+        sessionStorage.setItem("fin",fin);
+        location.reload();
     });
-    //facture precedente
+    //liste precedente
     prevfact.addEventListener('click',(event)=>{
-        
-        if(currentf>1){
-            currentf--;
-            currentFacture=listeFactures[currentf];
-            displayfacture(currentFacture);
+        fin=debut;
+        if(debut>50){
+            debut-=50;
+        }else{
+            debut=1;
         }
-        
+        sessionStorage.setItem("debut",debut);
+        sessionStorage.setItem("fin",fin);
+        location.reload();
         });
     //imprimer
     print=document.getElementById('print');
     print.addEventListener('click',(event)=>{
-        var element = document.getElementById('paper'); 
+        var element = document.getElementById('papers'); 
         var filename=currentFacture.nfact;
         //easy
         //html2pdf().from(element).save();

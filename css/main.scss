@@ -20,19 +20,20 @@
 .container{
     margin-left: auto;
     margin-right: auto;
-    //border: solid black 2px;
     width: 50%;
+    height: 15em;
     font-family: 'Times New Roman', Times, serif;
+    border: solid 4px rgb(4, 87, 87);
     .card-header{
-        background-color: lightgrey;
         text-align: center;
-        border: solid 2px rgb(72, 70, 70);
     }
     .card-body{
-        border: solid 2px rgb(72, 70, 70);
         height: 5em;
+        padding: 2em;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 1em;
     }
-    .bt{margin: 0.5em;
+    .btpdf{margin: 1em;
         height: 3em;
         width: 10em;
         background-color: rgb(4, 87, 87);
@@ -49,10 +50,13 @@
         height: 3em;
     }
     .cell{
-        width: 10em;
+        width: 9em;
         text-align: center;
         background-color: rgb(236, 241, 244);
         font-family: 'Times New Roman', Times, serif;
-        font-size: 0.8em;
+        font-size: 0.95em;
     }
+}
+.excelsheet{
+    margin-top: 2em;
 }

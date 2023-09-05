@@ -46,6 +46,10 @@ var listeFactures=new Array();
     }
   });
   viewPDF.addEventListener('click',(event)=>{
+    var debut=1;
+    var fin=50;
+    sessionStorage.setItem("debut",debut);
+    sessionStorage.setItem("fin",fin);
     sessionStorage.setItem("listeFactures", JSON.stringify(listeFactures));
     window.location.href = 'Viewpdf.html'
   });
